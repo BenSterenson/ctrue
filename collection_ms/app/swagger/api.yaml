@@ -11,7 +11,7 @@ paths:
     get:
       summary: Generate greeting
       description: Generates a greeting message.
-      operationId: api.collection_api.post_greeting
+      operationId: api.collection_api.get_greeting
       responses:
         200:
           description: greeting response
@@ -19,7 +19,7 @@ paths:
             text/plain:
               schema:
                 type: string
-                example: "hello dave!"
+                example: "Hello World!"
       parameters:
         - name: name
           in: path
@@ -27,4 +27,4 @@ paths:
           required: true
           schema:
             type: string
-            example: "dave"
+            example: "World"
