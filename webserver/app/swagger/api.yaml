@@ -1,0 +1,103 @@
+openapi: "3.0.2"
+
+info:
+  title: Webserver Micro Service
+  version: "1.0"
+servers:
+  - url: http://localhost:80/v1.0
+
+paths:
+  /events:
+    get:
+      summary: Get a list of all events
+      tags:
+        - Events
+      description: Get a list of all events.
+      operationId: api.api.get_events
+      responses:
+        200:
+          description: A list of all events
+          content:
+            text/plain:
+              schema:
+                type: list
+                example: []
+
+  /events/{event_id}:
+    get:
+      summary: Get event data
+      tags:
+        - Events
+      description: Given event_id returns events data.
+      operationId: api.api.get_event_data
+      responses:
+        200:
+          description: Event data
+          content:
+            text/plain:
+              schema:
+                type: object
+                example: {}
+      parameters:
+        - name: event_id
+          in: path
+          description: Event id.
+          required: true
+          schema:
+            type: string
+            example: "80ad57213900"
+
+  /events/{event_id}/users:
+    get:
+      summary: Get all users registered for event
+      tags:
+        - Events
+      description: Get all users registered for event.
+      operationId: api.api.get_event_users
+      responses:
+        200:
+          description: greeting response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Hello World!"
+      parameters:
+        - name: event_id
+          in: path
+          description: Event id.
+          required: true
+          schema:
+            type: string
+            example: "80ad57213900"
+
+  /events/{event_id}/users/{user_id}:
+    get:
+      summary: Get user
+      tags:
+        - Events
+      description: Generates a greeting message.
+      operationId: api.api.get_event_user
+      responses:
+        200:
+          description: greeting response
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Hello World!"
+      parameters:
+        - name: event_id
+          in: path
+          description: Event id.
+          required: true
+          schema:
+            type: string
+            example: "80ad57213900"
+        - name: user_id
+          in: path
+          description: User id.
+          required: true
+          schema:
+            type: string
+            example: "227a5e44e280"
