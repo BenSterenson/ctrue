@@ -1,0 +1,11 @@
+apiVersion: skaffold/v1beta12
+kind: Config
+build:
+  artifacts:
+  - image: collection-api
+    context: collection_ms
+deploy:
+  kubectl:
+    manifests:
+    - "**/k8s"
+    - "ingress.yaml"
