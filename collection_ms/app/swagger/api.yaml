@@ -4,7 +4,7 @@ info:
   title: Collection Micro Service
   version: "1.0"
 servers:
-  - url: http://localhost:80/v1.0
+  - url: /v1.0
 
 paths:
   /greeting/{name}:
